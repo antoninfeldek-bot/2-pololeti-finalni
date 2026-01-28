@@ -24,4 +24,37 @@ a {
     width: 180px;
     margin-top: 80px;
 }
+.radius-box {
+    background: steelblue;
+    width: 200px;
+    height: 200px;
+    color: aliceblue;
+    place-items: center;
+    display: grid;
+    border-radius: 100px;
+}
 
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.link {
+    text-decoration: none;
+    background: none;
+}
+.wrap {
+    margin: 15px;
+    padding: 15px;
+}
