@@ -75,3 +75,19 @@ h2 {
 h3 {
     font-size: 3rem;
 }
+.cenetr-box{
+    width: 50%;
+    height: 300px;
+    background: steelblue;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+}
+.center-text{
+    background-color: aqua;
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+    text-align: center;
+    align-content: center;
+}
