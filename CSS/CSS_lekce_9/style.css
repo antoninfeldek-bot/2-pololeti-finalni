@@ -37,7 +37,7 @@ body {
    margin: 10px auto;
 }
  .linear{
-   background-image: linear-gradient(to right, blue, green);
+   background-image: linear-gradient(to right, blue, rgb(0, 165, 0));
  }
  .radial{
    background-image: linear-gradient(yellow 20%, red);
