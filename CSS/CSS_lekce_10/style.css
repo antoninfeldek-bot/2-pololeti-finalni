@@ -1,18 +1,30 @@
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
 input[type="checkbox"]:checked + span {
   color: rgba(255, 255, 255, 0.362);
   text-decoration: line-through;
 }
 li:first-child {
   border: 2px solid black;
+
 }
 .button {
+  position: relative;
+  top: -10px;
+  left: 100px;
   background-color: black;
   color: rgb(255, 255, 255);
-  border: none;
+  border: 2px solid black;
+  border-radius: 15px;
   padding: 10px 20px;
   cursor: pointer;
   text-decoration: none;
     display: inline-block;
+    transition: 0.3s;
+
     
   
 
@@ -20,6 +32,73 @@ li:first-child {
 .button:hover {  background-color: white;
   color: black;
   border: 2px solid black;
-  transition: 0.3s;
+}
+body {
+  background-color: #f5f5f5;
+  font-family: 'Times New Roman', serif; /* Podle obrázku to vypadá na patkové písmo */
+  padding: 40px;
+}
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-size: 2rem;
+  margin-top: 40px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+/* Společný základ pro karty */
+.card { 
+  position absolute;
+  top: 0;
+  left: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin-left: 20px;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+ 
+}
+
+/* Přesné stíny ze zadání */
+.card-mini, .card-product {
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,.12);
+}
+
+/* Styl textu uvnitř */
+.card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+}
+
+/* Pozicování odznaku (Position) */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #3b5998; /* Modrá barva z horní lišty obrázku */
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  border-radius: 3px;
 }
