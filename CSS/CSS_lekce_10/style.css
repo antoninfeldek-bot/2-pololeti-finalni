@@ -1,0 +1,25 @@
+input[type="checkbox"]:checked + span {
+  color: rgba(255, 255, 255, 0.362);
+  text-decoration: line-through;
+}
+li:first-child {
+  border: 2px solid black;
+}
+.button {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+    display: inline-block;
+    
+  
+
+}
+.button:hover {  background-color: white;
+  color: black;
+  border: 2px solid black;
+  transition: 0.3s;
+
+}
