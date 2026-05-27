@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nákupní košík - Lodní šrouby</title>
+    <link rel="stylesheet" href="products.style.css">
+    <link rel="stylesheet" href="cart.style.css"><style>
+    <style>
+        .cart-container { max-width: 800px; width: 100%; margin: 0 auto; text-align: left; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #eeeeee; }
+        .cart-item-title { font-weight: 600; font-size: 18px; }
+        .cart-item-price { font-weight: 700; color: #6e38e0; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 22px; font-weight: 700; margin-top: 30px; padding-top: 15px; border-top: 2px solid #333; }
+        .cart-buttons { display: flex; justify-content: space-between; margin-top: 30px; }
+        .btn-secondary { background: #e0e0e0; color: #333; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .btn-primary { background: linear-gradient(135deg, #6e38e0, #3b1cb6); color: white; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="home.html">Domů</a>
+            <a href="about.html">O mně</a>
+            <a href="product.html">Produkty</a>
+            <a href="cart.html">Košík (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <h1>Nákupní košík</h1>
+            
+            <div id="cart-items-list">
+                <p style="color: #888;">Košík je prázdný.</p>
+            </div>
+
+            <div class="cart-total">
+                <span>Celkem k úhradě:</span>
+                <span id="total-price">0 Kč</span>
+            </div>
+
+            <div class="cart-buttons">
+                <a href="products.html" class="btn-secondary">Pokračovat v nákupu</a>
+                <button class="btn-primary" id="checkout-btn" onclick="orderCheckout()">Odeslat objednávku</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const listContainer = document.getElementById('cart-items-list');
+            const totalContainer = document.getElementById('total-price');
+            
+            if (cart.length === 0) {
+                listContainer.innerHTML = '<p style="color: #888; padding: 20px 0;">V košíku nemáte žádné lodní šrouby.</p>';
+                totalContainer.innerText = '0 Kč';
+                document.getElementById('checkout-btn').style.display = 'none';
+                return;
+            }
+
+            listContainer.innerHTML = ''; // Vyčistit starý text
+            let totalSum = 0;
+
+            cart.forEach((item, index) => {
+                // Převod ceny z textu "2 490 Kč" na číslo pro matematické sečtení
+                const numericPrice = parseInt(item.price.replace(/[^0-9]/g, ''));
+                totalSum += numericPrice;
+
+                // Vytvoření HTML pro řádek s produktem
+                const itemRow = document.createElement('div');
+                itemRow.className = 'cart-item';
+                itemRow.innerHTML = `
+                    <div class="cart-item-title">${item.title}</div>
+                    <div>
+                        <span class="cart-item-price">${item.price}</span>
+                        <button onclick="removeItem(${index})" style="margin-left: 15px; background: none; border: none; color: #ff6b6b; cursor: pointer; font-size: 13px;">Odebrat</button>
+                    </div>
+                `;
+                listContainer.appendChild(itemRow);
+            });
+
+            // Zformátování celkové ceny zpět na čitelný tvar (např. 10290 Kč -> 10 290 Kč)
+            totalContainer.innerText = totalSum.toLocaleString('cs-CZ') + ' Kč';
+        }
+
+        // Funkce pro odebrání jednoho kusu z košíku
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Odstraní položku na daném indexu
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart(); // Překreslí košík
+        }
+
+        // Simulace odeslání objednávky
+        function orderCheckout() {
+            alert('Objednávka na lodní šrouby byla úspěšně simulována! Děkujeme.');
+            localStorage.removeItem('cart'); // Vyčistíme košík
+            window.location.href = 'index.html';
+        }
+
+        // Spustit vykreslení při načtení stránky
+        renderCart();
+    </script>
+</body>
+</html>

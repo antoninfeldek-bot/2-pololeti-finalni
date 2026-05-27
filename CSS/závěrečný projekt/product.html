@@ -14,6 +14,7 @@
             <a href="about.html">O mně</a>
             <a href="product.html" class="active">Produkty</a>
             <a href="login.html">Přihlášení</a>
+            <a href="cart.html">Košík (<span id="cart-count">0</span>)</a>
         </nav>
     </header>
 
@@ -70,6 +71,34 @@
 
         </div>
     </main>
+    <script>
+    // Odchytíme všechna tlačítka "Detail"
+    document.querySelectorAll('.buy-button').forEach((button, index) => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Najdeme kartu produktu, na kterou uživatel kliknul
+            const card = button.closest('.product-card');
+            const title = card.querySelector('h2').innerText;
+            const price = card.querySelector('.product-price').innerText;
+            const desc = card.querySelector('.product-description').innerText;
+            
+            // Vytvoříme objekt produktu
+            const selectedProduct = {
+                id: index + 1,
+                title: title,
+                price: price,
+                description: desc
+            };
+            
+            // Uložíme ho do localStorage jako "aktuálně prohlížený"
+            localStorage.setItem('currentProduct', JSON.stringify(selectedProduct));
+            
+            // Přesměrujeme na stránku s detailem
+            window.location.href = 'product-detail.html';
+        });
+    });
+</script>
 
 </body>
 </html>

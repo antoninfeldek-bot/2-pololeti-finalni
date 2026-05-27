@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail produktu - Lodní šrouby</title>
+    <link rel="stylesheet" href="products.style.css"> 
+    <link rel="stylesheet" href="product-detail.css"><style>
+        .detail-container { max-width: 800px; margin: 40px auto; padding: 20px; display: flex; gap: 40px; background: white; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .detail-image { flex: 1; background: #eceff1; min-height: 300px; display: flex; align-items: center; justify-content: center; color: #90a4ae; border-radius: 12px; }
+        .detail-info { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+        .detail-info h1 { font-size: 32px; margin-bottom: 15px; text-align: left; }
+        .detail-price { font-size: 28px; font-weight: 700; color: #1a1a1a; margin: 20px 0; }
+        .add-to-cart-btn { display: inline-block; background: linear-gradient(135deg, #6e38e0, #3b1cb6); color: white; border: none; padding: 14px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; text-transform: uppercase; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="home.html">Domů</a>
+            <a href="about.html">O mně</a>
+            <a href="product.html" class="active">Produkty</a>
+            <a href="cart.html">Košík (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-container">
+            <div class="detail-image">
+                <span id="p-img">Obrázek lodního šroubu</span>
+            </div>
+            <div class="detail-info">
+                <h1 id="p-title">Název produktu</h1>
+                <p id="p-desc">Podrobný popis bude načten z paměti...</p>
+                <div class="detail-price" id="p-price">0 Kč</div>
+                <button class="add-to-cart-btn" id="add-to-cart">Přidat do košíku</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 1. Načtení dat z localStorage
+        const productData = localStorage.getItem('currentProduct');
+        
+        if (!productData) {
+            window.location.href = 'products.html'; // Pokud nic neprohlíží, vrátíme ho zpět
+        }
+        
+        const product = JSON.parse(productData);
+        
+        // 2. Vyplnění textů do stránky
+        document.getElementById('p-title').innerText = product.title;
+        document.getElementById('p-desc').innerText = product.description;
+        document.getElementById('p-price').innerText = product.price;
+        document.getElementById('p-img').innerText = product.title;
+
+        // Aktualizace počítadla košíku v menu
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+        updateCartCount();
+
+        // 3. Funkce "Přidat do košíku"
+        document.getElementById('add-to-cart').addEventListener('click', function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Přidáme produkt do pole košíku
+            cart.push(product);
+            
+            // Uložíme aktualizovaný košík zpět
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            alert('Lodní šroub byl přidán do košíku!');
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

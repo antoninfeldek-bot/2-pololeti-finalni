@@ -14,6 +14,7 @@
             <a href="about.html">O mně</a>
             <a href="product.html">Produkty</a>
             <a href="login.html" class="active">Přihlášení</a>
+            <a href="cart.html">Košík (<span id="cart-count">0</span>)</a>
         </nav>
     </header>
 
@@ -44,6 +45,37 @@
             </p>
         </div>
     </main>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Zamezí obnovení stránky
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Pokus o načtení uživatele z localStorage podle e-mailu
+        const storedUserData = localStorage.getItem(email);
+
+        if (!storedUserData) {
+            alert('Uživatel s tímto e-mailem neexistuje. Zkontrolujte údaje nebo se zaregistrujte.');
+            return;
+        }
+
+        // Převedení textu z paměti zpět na JavaScript objekt
+        const user = JSON.parse(storedUserData);
+
+        // Kontrola hesla
+        if (user.password === password) {
+            alert('Přihlášení bylo úspěšné! Vítejte, ' + user.name + '.');
+            
+            // Volitelně: Uložení informace o tom, že je uživatel aktuálně přihlášen
+            sessionStorage.setItem('currentLoggedInUser', user.email);
+            
+            window.location.href = 'index.html'; // Přesměrování na hlavní stranu
+        } else {
+            alert('Zadané heslo je nesprávné.');
+        }
+    });
+</script>
 
 </body>
 </html>

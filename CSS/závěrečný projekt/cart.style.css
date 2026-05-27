@@ -1,0 +1,202 @@
+/* Reset základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Horní navigace */
+header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #000000;
+}
+
+nav a.active {
+    border-bottom: 2px solid #6e38e0;
+    padding-bottom: 2px;
+}
+
+/* Hlavní obsah (Košík) */
+main {
+    flex: 1;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cart-container {
+    max-width: 800px;
+    width: 100%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    text-align: left;
+}
+
+.cart-container h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+}
+
+/* Jednotlivé položky v košíku */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+.cart-item-right {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+/* Tlačítko pro odebrání položky */
+.remove-btn {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.remove-btn:hover {
+    color: #fa5252;
+    text-decoration: underline;
+}
+
+/* Celková cena */
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1a1a1a;
+}
+
+#total-price {
+    color: #6e38e0;
+}
+
+/* Spodní akční tlačítka */
+.cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.btn-secondary {
+    background: #e9ecef;
+    color: #495057;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: #dee2e6;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6e38e0, #3b1cb6);
+    color: #ffffff;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(110, 56, 224, 0.3);
+    transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+    opacity: 0.95;
+}
+
+/* Responzivita */
+@media (max-width: 600px) {
+    .cart-container {
+        padding: 25px 20px;
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .cart-item-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .cart-buttons {
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+    .btn-secondary, .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+    nav {
+        gap: 20px;
+    }
+    nav a {
+        font-size: 14px;
+    }
+}
