@@ -1,0 +1,190 @@
+/* Reset základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Horní navigace */
+header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #000000;
+}
+
+nav a.active {
+    border-bottom: 2px solid #6e38e0;
+    padding-bottom: 2px;
+}
+
+/* Hlavní obsah (Vycentrování formuláře) */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Karta formuláře */
+.login-card {
+    background-color: #ffffff;
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.login-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+/* Formulářové prvky */
+form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444444;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Odstranění marginu u labelu uvnitř wrapperu, aby se nekryl s flexboxem */
+.label-wrapper label {
+    margin-bottom: 0;
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+input:focus {
+    border-color: #6e38e0;
+    box-shadow: 0 0 0 3px rgba(110, 56, 224, 0.15);
+}
+
+/* Odkazy uvnitř formuláře */
+.forgot-password {
+    font-size: 13px;
+    color: #6e38e0;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Přihlašovací tlačítko */
+.login-button {
+    width: 100%;
+    background: linear-gradient(135deg, #6e38e0, #3b1cb6);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(110, 56, 224, 0.3);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+/* Spodní text pod formulářem */
+.register-text {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 25px;
+}
+
+.register-text a {
+    color: #6e38e0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responzivita */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+    nav {
+        gap: 20px;
+    }
+    nav a {
+        font-size: 14px;
+    }
+}

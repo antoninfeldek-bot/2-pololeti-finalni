@@ -1,0 +1,140 @@
+/* Reset základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Horní navigace */
+header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #000000;
+}
+
+nav a.active {
+    border-bottom: 2px solid #6e38e0;
+    padding-bottom: 2px;
+}
+
+/* Hlavní obsah stránky O mně */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.about-container {
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Hlavní nadpis */
+h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+/* Úvodní text */
+.intro-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 40px;
+}
+
+/* Mřížka pro strukturovaný obsah */
+.content-grid {
+    display: flex;
+    gap: 30px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.content-block {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.content-block h2 {
+    font-size: 22px;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.content-block p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666666;
+}
+
+/* Fialové tlačítko korespondující s hlavní stránkou */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #6e38e0, #3b1cb6);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 45px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(110, 56, 224, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(110, 56, 224, 0.4);
+}
+
+/* Responzivní design pro menší obrazovky */
+@media (max-width: 650px) {
+    .content-grid {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    nav {
+        gap: 20px;
+    }
+    nav a {
+        font-size: 14px;
+    }
+}

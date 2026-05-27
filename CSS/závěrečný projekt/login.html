@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přihlášení - Váš Produkt</title>
+    <link rel="stylesheet" href="login.style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="home.html">Domů</a>
+            <a href="about.html">O mně</a>
+            <a href="product.html">Produkty</a>
+            <a href="login.html" class="active">Přihlášení</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-card">
+            <h2>Přihlášení do účtu</h2>
+            <p class="subtitle">Vítejte zpět! Zadejte své údaje.</p>
+
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="email">E-mailová adresa</label>
+                    <input type="email" id="email" name="email" placeholder="jmeno@domena.cz" required>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-wrapper">
+                        <label for="password">Heslo</label>
+                        <a href="lost.html" class="forgot-password">Zapomněli jste?</a>
+                    </div>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="login-button">Přihlásit se</button>
+            </form>
+
+            <p class="register-text">
+                Nemáte ještě účet? <a href="register.html">Zaregistrujte se</a>
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>

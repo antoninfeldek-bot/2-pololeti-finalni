@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrace - Váš Produkt</title>
+    <link rel="stylesheet" href="register.style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Domů</a>
+            <a href="about.html">O mně</a>
+            <a href="products.html">Produkty</a>
+            <a href="login.html">Přihlášení</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="register-card">
+            <h2>Vytvořit účet</h2>
+            <p class="subtitle">Zaregistrujte se a získejte přístup ke všem funkcím.</p>
+
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Celé jméno</label>
+                    <input type="text" id="name" name="name" placeholder="Jan Novák" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mailová adresa</label>
+                    <input type="email" id="email" name="email" placeholder="jmeno@domena.cz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Heslo</label>
+                    <input type="password" id="password" name="password" placeholder="Minimálně 8 znaků" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password-check">Potvrzení hesla</label>
+                    <input type="password" id="password-check" name="password-check" placeholder="Zadejte heslo znovu" required>
+                </div>
+
+                <div class="form-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Souhlasím s <a href="#">obchodními podmínkami</a></label>
+                </div>
+
+                <button type="submit" class="register-button">Zaregistrovat se</button>
+            </form>
+
+            <p class="login-text">
+                Už máte účet? <a href="login.html">Přihlaste se</a>
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>
